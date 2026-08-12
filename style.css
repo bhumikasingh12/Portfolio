@@ -604,8 +604,9 @@ section {
   display: block;
   width: 100%;
   aspect-ratio: 4 / 3;
-  object-fit: cover;
-  object-position: top center;
+  object-fit: contain;
+  object-position: center;
+  background: var(--color-surface);
   border-radius: var(--radius-lg);
   border: 1.5px solid var(--color-line-strong);
 }
@@ -622,6 +623,32 @@ section {
 .placeholder-midnight {
   background: linear-gradient(135deg, #f3f0e8, #eef0ff);
   object-fit: contain;
+}
+
+/* Screenshots inside the SpeakUp / IntelliGuard placeholder boxes:
+   hide the decorative icon and let the real screenshot fill the
+   available space without being cropped. */
+.placeholder-speakup svg,
+.placeholder-intelliguard svg {
+  display: none;
+}
+.placeholder-speakup,
+.placeholder-intelliguard {
+  padding: 12px;
+}
+.placeholder-speakup span,
+.placeholder-intelliguard span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+}
+.placeholder-speakup .project-screenshot,
+.placeholder-intelliguard .project-screenshot {
+  aspect-ratio: auto;
+  height: 100%;
+  border: none;
 }
 
 .project-index {
